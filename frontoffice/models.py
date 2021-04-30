@@ -56,13 +56,13 @@ class Logement(models.Model):
     def __str__(self):
         return nbPieces+surface+photo+loyer+charges+partAgence
 #Model dyal Maison
-class Maison(models.Model):
+class Maison(Logement):
     surface_terrain=models.FloatField()
     grenier=models.BooleanField()
     def __str__(self):
         return self.surface_terrain + self.grenier
 #Model dyal Appartement
-class Appartement(models.Model):
+class Appartement(Logement):
     etage=models.IntegerField()
     ascenseur=models.BooleanField()
     garage=models.BooleanField()
