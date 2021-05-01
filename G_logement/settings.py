@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'G_logement.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gestion_logement',
+        'NAME': 'g_logements',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
