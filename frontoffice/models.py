@@ -28,7 +28,7 @@ class Personne(models.Model):
 
 # Proprietaire
 class Proprietaire(Personne):
-    cnl = models.CharField(max_length=200)
+    cne = models.CharField(max_length=200)
 
     def __str__(self):
         return self.cne
@@ -97,7 +97,7 @@ class Appartement(Logement):
 class Bail(models.Model):
     no = models.IntegerField()
     loyerTTC = models.FloatField()
-    date_debut = models.DateField(default=timezone.now(), verbose_name="date debut")
+    date_debut = models.DateField(default=timezone.now, verbose_name="date debut")
     duree = models.DurationField()
     locataire = models.ForeignKey('Locataire', on_delete=models.CASCADE)
     logement = models.ForeignKey('Logement', on_delete=models.CASCADE)
@@ -115,7 +115,7 @@ class CollaborateurAdmin(admin.ModelAdmin):
 
 
 class ProprietaireAdmin(admin.ModelAdmin):
-    list_display = ('nom', 'prenom', 'cnl')
+    list_display = ('nom', 'prenom', 'cne')
 class AdresseAdmin(admin.ModelAdmin):
     list_display = ('ville', 'rue', 'no', 'cp', 'departement')
 
