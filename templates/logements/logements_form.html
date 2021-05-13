@@ -1,4 +1,10 @@
 {% extends "logements/logements.html" %}
 {% block content %}
-<p>Form_Logement</p>
+{% load crispy_forms_tags %}
+<p>Insert a new Logement</p>
+<form action="" method="POST" autocomplete="off">
+    {%csrf_token%}
+    {{form|crispy}}
+    <input type="submit" value="Enregister" class="btn btn-outline-warning my-2 text-dark bg-warning">
+</form>
 {% endblock content %}
