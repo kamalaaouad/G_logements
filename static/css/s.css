@@ -1,0 +1,16 @@
+.navbar{
+    color: rgb(209, 64, 64) !important;
+}
+*{
+    font-family: 'Montserrat', sans-serif;
+    font-size: small;
+}
+.table {
+    font-family: 'Montserrat';
+    border-radius: 8px 8px 0px 0px !important;
+    border-collapse: collapse;
+}
+.__container__{
+    min-height: 100vh;
+    height: 100%;
+}

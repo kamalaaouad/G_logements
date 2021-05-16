@@ -106,6 +106,10 @@ class Bail(models.Model):
         return str(self.no) + "-" + str(self.loyerTTC) + "-" + str(self.date_debut) + "-" + str(self.duree)
 
 
+
+
+#############################################################################
+
 class locataireAdmin(admin.ModelAdmin):
     list_display = ('nom', 'prenom', 'adresse_origine')
 

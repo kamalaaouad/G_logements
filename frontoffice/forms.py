@@ -1,5 +1,7 @@
 from django import forms
-from .models import Logement
+from .models import *
+
+#Logement Form
 class LogementForm(forms.ModelForm):
 
     class Meta:
@@ -20,3 +22,40 @@ class LogementForm(forms.ModelForm):
         super(LogementForm,self).__init__(*args,**kwargs)
         self.fields['adresse'].empty_label="Selectionner l'adresse"
         self.fields['photo'].required=False
+
+#Collaborateur Form
+
+class CollaborateurForm(forms.ModelForm):
+
+    class Meta:
+        model=Collaborateur
+        fields = ('nom','prenom','adresse','courriel','telephone')
+        labels={
+            'nom':'Nom',
+            'prenom':'Prenom',
+            'adresse':'Adresse',
+            'courriel':'Courriel',
+            'telephone':'Telephone'
+        }
+    def __init__(self,*args,**kwargs):
+        super(CollaborateurForm,self).__init__(*args,**kwargs)
+        self.fields['adresse'].empty_label="Selectionner votre adresse"
+        self.fields['telephone'].required=False
+
+#Proprietaire Form :: ProprietaireForm
+
+
+class ProprietaireForm(forms.ModelForm):
+
+    class Meta:
+        model=Proprietaire
+        fields = ('nom','prenom','adresse','cne')
+        labels={
+            'nom':'Nom',
+            'prenom':'Prenom',
+            'adresse':'Adresse',
+            'cne':'CNE'
+        }
+    def __init__(self,*args,**kwargs):
+        super(ProprietaireForm,self).__init__(*args,**kwargs)
+        self.fields['adresse'].empty_label="Selectionner votre adresse"
