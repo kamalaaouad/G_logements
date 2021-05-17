@@ -4,6 +4,11 @@ from django.urls import path
 from . import views
 urlpatterns=[
    path('',views.logements),
+   #Authentification URLS ::
+   path('registration',views.Userreg,name="Reg"),
+   path('login',views.LoginPage,name="LoginPage"),
+   path('logout',views.Logout,name="Logout"),
+   #Logements URLS ::
    path('list/',views.logements_list, name="logementList"),
    path('form/',views.logements_form,name="logementInsert"),
    path('<int:id>/',views.logements_form,name="logementUpdate"),

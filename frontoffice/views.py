@@ -1,6 +1,39 @@
 from django.shortcuts import redirect, render
 from .forms import *
 from .models import *
+from django.contrib import messages
+
+
+#Authentification :: 
+def Userreg(request):
+    if request.method == 'POST':
+        Username=request.POST['Uname']
+        Email=request.POST['mail']
+        Pwd=request.POST['pwd']
+        Age=request.POST['age']
+
+        Newuser(Username=Username,Email=Email,Pwd=Pwd,Age=Age).save()
+        messages.success(request, "The new user is saved successfully")
+        return render(request, 'Registration.html')
+    else:
+        return render(request, 'Registration.html')
+
+def LoginPage(request):
+    if request.method=="POST":
+        try:
+            Userdetails=Newuser.objects.get(Email=request.POST['Email'],Pwd=request.POST['Pwd'])
+            print("Username=",Userdetails)
+            request.session["Email"]=Userdetails.Email
+            return redirect('/films')
+        except Newuser.DoesNotExist as e:
+            messages.success(request,"Username / password Invalid ..!")
+    return render(request,'Login.html')
+def Logout(request):
+    try:
+        del request.session['Email']
+    except:
+        return render(request,'logements/logements_list.html')
+    return render(request,'logements/logements_list.html')
 # Create your views here.
 
 def home(request):
@@ -92,6 +125,7 @@ def proprietaire_form(request,id=0):
         if proprietaireForm.is_valid():
             proprietaireForm.save()
         return redirect('/logements/proprietaires/list')
+     
     #Proprietaire Liste :: 
 def proprietaires(request):
     context ={'proprietaireObjects':Proprietaire.objects.all()}

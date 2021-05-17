@@ -4,6 +4,14 @@ from django.utils import timezone
 
 
 # Create your models here.
+#New User 
+class Newuser(models.Model):
+    Username=models.CharField(max_length=150)
+    Email=models.CharField(max_length=150)
+    Pwd=models.CharField(max_length=150)
+    Age=models.IntegerField()
+    def __str__(self):
+        return str(self.Username)
 # Adresse
 class Adresse(models.Model):
     ville = models.CharField(max_length=200)
