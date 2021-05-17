@@ -14,9 +14,9 @@ def Userreg(request):
 
         Newuser(Username=Username,Email=Email,Pwd=Pwd,Age=Age).save()
         messages.success(request, "The new user is saved successfully")
-        return render(request, 'Registration.html')
+        return render(request, 'Auth/Registration.html')
     else:
-        return render(request, 'Registration.html')
+        return render(request, 'Auth/Registration.html')
 
 def LoginPage(request):
     if request.method=="POST":
@@ -24,10 +24,10 @@ def LoginPage(request):
             Userdetails=Newuser.objects.get(Email=request.POST['Email'],Pwd=request.POST['Pwd'])
             print("Username=",Userdetails)
             request.session["Email"]=Userdetails.Email
-            return redirect('/films')
+            return redirect('/logements')
         except Newuser.DoesNotExist as e:
             messages.success(request,"Username / password Invalid ..!")
-    return render(request,'Login.html')
+    return render(request,'Auth/Login.html')
 def Logout(request):
     try:
         del request.session['Email']
