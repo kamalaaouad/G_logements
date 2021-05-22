@@ -66,6 +66,31 @@
                 </ul>
               </li>
 
+
+              <li class="nav-item text-light dropdown">
+                <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Locataire
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{% url 'proprietaireList' %}">List Locataires</a></li>
+                  <li><a class="dropdown-item" href="{%  url 'proprietaireInsert' %}">Insert Locataires</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Autres CRUD</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item text-light dropdown">
+                <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Apparetements
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{% url 'proprietaireList' %}">List Apparetements</a></li>
+                  <li><a class="dropdown-item" href="{%  url 'proprietaireInsert' %}">Insert Apparetements</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Autres CRUD</a></li>
+                </ul>
+              </li>
+
             </ul>
            
           </div>
